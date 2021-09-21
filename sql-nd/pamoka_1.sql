@@ -63,4 +63,3 @@ select name
 from country
 where continent = 'Africa' and population > 3000000
 order by population DESC;
-

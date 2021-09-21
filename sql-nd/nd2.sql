@@ -5,7 +5,7 @@
 -- - nerodyti mazesniu valstybiu plotu vidurkiu negu 1000
 
 -- ATSAKYMAS
-select continent, region, sum(surfacearea), sum(population), avg(surfacearea)
+select continent as Zemynas, region as Regionas, sum(surfacearea) as Bendras_plotas, sum(population) as Gyventoju_kiekis, avg(surfacearea) as Vidutinis_plotas
 from country
 where IndepYear is not null
 group by continent, region
