@@ -1,3 +1,8 @@
+-- 1. SELECT
+-- 2. VYKDYMO TVARKA IR EILIŠKUMAS
+-- 3. LIKE
+
+-- ----------------------------------------------------------------
 select 1 as vienas, 2+3 as suma, 7/4 as dalyba,2*9 as daugyba,21-18 as atimtis, 'labas' as tekstas,
 'world' + 1; -- piram komanda
 
