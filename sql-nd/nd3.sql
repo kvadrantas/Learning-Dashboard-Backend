@@ -1,8 +1,8 @@
 -- UŽDAVINYS:
--- valstybes kodas, miesto pavadinimas, valstybes pavadinimas, oficialiu kalbu kiekis
--- tik zemynuose: europa ir afrika
--- kur daugiau nei viena oficiali kalba
--- surusiuota pagal oficialiu kalbu kieki mazejimo tvarka, valstybes pavadinima didejimo tvarka
+-- - valstybes kodas, miesto pavadinimas, valstybes pavadinimas, oficialiu kalbu kiekis
+-- - tik zemynuose: europa ir afrika
+-- - kur daugiau nei viena oficiali kalba
+-- - surusiuota pagal oficialiu kalbu kieki mazejimo tvarka, valstybes pavadinima didejimo tvarka
 
 -- ATSAKYMAS
 select country.code as valstybes_kodas, city.name as miesto_pavadinimas, 

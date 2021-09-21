@@ -54,10 +54,10 @@ order by countrycode; 			-- 3-cias
 select name as pavadinimas, countrycode as 'salies kodas', population / 1000000 as 'gyventojai (mln)'
 from city;
 -- ----------------------------------------------------------------
--- valstybiu pavadinimai
--- afrikoje
--- virs 3mln gyventoju
--- surusiuota pagal gyventojus mazejimo tvarka
+-- - valstybiu pavadinimai
+-- - afrikoje
+-- - virs 3mln gyventoju
+-- - surusiuota pagal gyventojus mazejimo tvarka
 
 select name
 from country
