@@ -1,4 +1,5 @@
 -- UNION
+
 -- abieju queriu rezultatus atvaizduoja viena po kito 
 -- union veikia disticnt rezimu (nerodo dubliuojanciu irasu) 
 select name

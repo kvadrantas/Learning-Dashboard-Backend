@@ -24,6 +24,8 @@ import cors from "cors";
 const app = express();
 const PORTS = 3344;
 const WEB = "./";
+let folder = '';
+let files = '';
 
 app.use(cors());
 app.use(express.static('./', {    // Like "Default Document" on ISS
@@ -62,8 +64,13 @@ app.use(function (req, res, next) {
 //-----------------
 
 
-// GET FILE LIST IN FOLDER 
-const files = await readdir('./sql-nd');
+// GET FOLDER LINST - it will be courses list
+const folders = await readdir('./Kursai');
+
+// GET FILE LIST IN FOLDER - it will be cource content
+async function getFiles() {
+  return await readdir(`./Kursai/${folder}`);
+};
 
 
 // READ FILE CONTENT FROM FILE
@@ -72,7 +79,7 @@ let fileContent;
 import fs1 from 'fs/promises';
 async function calll(id) {
   try {
-    return await fs1.readFile(`./sql-nd/${id}`, {encoding: "UTF-8"});
+    return await fs1.readFile(`./Kursai/${folder}/${id}`, {encoding: "UTF-8"});
   }
   catch(error) {
     console.log('KLAIDA: ', error);
@@ -88,9 +95,19 @@ app.get('/Bit-SQL/json/fileContent:id', async (req, res) => {
     res.send(JSON.stringify(fileContent));
 });
 
-// FILE LIST EXPORT IN JSON 
-app.get('/Bit-SQL/json/files', (req, res) => {
+// FOLDER LIST EXPORT IN JSON
+app.get('/Bit-SQL/json/folders', (req, res) => {
   res.set('Content-Type', 'application/json');
-  res.send(JSON.stringify(files))
+  res.send(JSON.stringify(folders));
+  res.status(204).end();
+})
+
+// FILE LIST EXPORT IN JSON 
+app.get('/Bit-SQL/json/files:id', async (req, res) => {
+  res.set('Content-Type', 'application/json');
+  folder = (req.params.id).slice(1);
+  console.log('FOLDER ', folder);
+  files = await getFiles();
+  res.send(JSON.stringify(files));
   res.status(204).end();
 });
