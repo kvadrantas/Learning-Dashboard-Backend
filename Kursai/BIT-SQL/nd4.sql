@@ -25,5 +25,14 @@ having count(actor.actor_id) > 2;
 
 -- category.category_id
 
-
-
+-- ----------------------------------------
+-- ALTERNATYVA
+select a.actor_id as id, a.first_name as vardas, a.last_name as pavarde, count(*) as filmu_kiekis
+from
+    actor a join film_actor fa on a.actor_id = fa.actor_id
+    join film_category fc on fa.film_id = fc.film_id
+    join category c on fc.category_id = c.category_id
+where
+    c.name = 'Action'
+group by a.actor_id, a.first_name, a.last_name
+having count(*) > 2
