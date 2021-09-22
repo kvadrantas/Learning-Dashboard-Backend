@@ -77,6 +77,7 @@ async function getFiles() {
 let fileContent;
 
 import fs1 from 'fs/promises';
+import { Console } from "console";
 async function calll(id) {
   try {
     return await fs1.readFile(`./Kursai/${folder}/${id}`, {encoding: "UTF-8"});
@@ -106,8 +107,17 @@ app.get('/Bit-SQL/json/folders', (req, res) => {
 app.get('/Bit-SQL/json/files:id', async (req, res) => {
   res.set('Content-Type', 'application/json');
   folder = (req.params.id).slice(1);
-  console.log('FOLDER ', folder);
+  // console.log('FOLDER ', folder);
   files = await getFiles();
+  // console.log(typeof files, files);
+
+  files.sort(function(a,b) {
+      if ( parseInt(a.slice(0, a.search('-') + 1)) < parseInt(b.slice(0, b.search('-') + 1)) ) {
+        return -1
+      } else return 1
+  });
+  
   res.send(JSON.stringify(files));
   res.status(204).end();
 });
+
