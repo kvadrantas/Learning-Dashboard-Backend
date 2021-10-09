@@ -38,7 +38,7 @@ https.createServer({
     key: privateKey,
     cert: certificate
 }, app).listen(PORTS, function() {
-  console.log(`Server listening for https at https://rolandasseputis.lt:${PORTS}/BIT-SQL/json/filecontent:nd1.sql`)
+  console.log(`Server listening for https at https://rolandasseputis.lt:${PORTS}/Learning-Dashboard/json/filecontent:nd1.sql`)
 });
 // *****************************************************************************
 //-----------------
@@ -90,21 +90,21 @@ async function calll(id) {
 
 
 // FILE CONTENT EXPORT IN JSON
-app.get('/Bit-SQL/json/fileContent:id', async (req, res) => {
+app.get('/Learning-Dashboard/json/fileContent:id', async (req, res) => {
     fileContent = await calll(req.params.id.slice(1));
     res.set('Content-Type', 'application/json'); 
     res.send(JSON.stringify(fileContent));
 });
 
 // FOLDER LIST EXPORT IN JSON
-app.get('/Bit-SQL/json/folders', (req, res) => {
+app.get('/Learning-Dashboard/json/folders', (req, res) => {
   res.set('Content-Type', 'application/json');
   res.send(JSON.stringify(folders));
   res.status(204).end();
 })
 
 // FILE LIST EXPORT IN JSON 
-app.get('/Bit-SQL/json/files:id', async (req, res) => {
+app.get('/Learning-Dashboard/json/files:id', async (req, res) => {
   res.set('Content-Type', 'application/json');
   folder = (req.params.id).slice(1);
   // console.log('FOLDER ', folder);
