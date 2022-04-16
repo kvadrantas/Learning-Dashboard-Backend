@@ -38,7 +38,7 @@ https.createServer({
     key: privateKey,
     cert: certificate
 }, app).listen(PORTS, function() {
-  console.log(`Server listening for https at https://rolandasseputis.lt:${PORTS}/Learning-Dashboard/json/filecontent:nd1.sql`)
+  console.log(`Server listening for https at https://learning.rolandasseputis.lt:${PORTS}/Learning-Dashboard/json/filecontent:nd1.sql`)
 });
 // *****************************************************************************
 //-----------------
@@ -46,7 +46,7 @@ https.createServer({
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'https://rolandasseputis.lt');
+  res.setHeader('Access-Control-Allow-Origin', 'https://learning.rolandasseputis.lt');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
